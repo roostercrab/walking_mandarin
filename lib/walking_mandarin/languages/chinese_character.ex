@@ -30,6 +30,6 @@ defmodule WalkingMandarin.Languages.ChineseCharacter do
   def changeset(chinese_character, attrs) do
     chinese_character
     |> cast(attrs, [:hanzi_standard, :hanzi_traditional, :pinyin, :meaning, :pronounciation_helper, :mnemonic, :part_of_speech, :radical, :phonetic, :initial, :final, :tone, :etymology, :image, :sound, :stroke_order_simplified, :stroke_order_traditional, :translated_to, :vote_value])
-    |> validate_required([:hanzi_standard, :hanzi_traditional, :pinyin, :meaning, :pronounciation_helper, :mnemonic, :part_of_speech, :radical, :phonetic, :initial, :final, :tone, :etymology, :image, :sound, :stroke_order_simplified, :stroke_order_traditional, :translated_to, :vote_value])
+    |> validate_required([:hanzi_standard])
   end
 end
