@@ -1,0 +1,71 @@
+<h1>Listing Chinese characters</h1>
+
+<%= if @live_action in [:new, :edit] do %>
+  <%= live_modal @socket, WalkingMandarinWeb.ChineseCharacterLive.FormComponent,
+    id: @chinese_character.id || :new,
+    title: @page_title,
+    action: @live_action,
+    chinese_character: @chinese_character,
+    return_to: Routes.chinese_character_index_path(@socket, :index) %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Hanzi standard</th>
+      <th>Hanzi traditional</th>
+      <th>Pinyin</th>
+      <th>Meaning</th>
+      <th>Pronounciation helper</th>
+      <th>Mnemonic</th>
+      <th>Part of speech</th>
+      <th>Radical</th>
+      <th>Phonetic</th>
+      <th>Initial</th>
+      <th>Final</th>
+      <th>Tone</th>
+      <th>Etymology</th>
+      <th>Image</th>
+      <th>Sound</th>
+      <th>Stroke order simplified</th>
+      <th>Stroke order traditional</th>
+      <th>Translated to</th>
+      <th>Vote value</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="chinese_characters">
+    <%= for chinese_character <- @chinese_characters do %>
+      <tr id="chinese_character-<%= chinese_character.id %>">
+        <td><%= chinese_character.hanzi_standard %></td>
+        <td><%= chinese_character.hanzi_traditional %></td>
+        <td><%= chinese_character.pinyin %></td>
+        <td><%= chinese_character.meaning %></td>
+        <td><%= chinese_character.pronounciation_helper %></td>
+        <td><%= chinese_character.mnemonic %></td>
+        <td><%= chinese_character.part_of_speech %></td>
+        <td><%= chinese_character.radical %></td>
+        <td><%= chinese_character.phonetic %></td>
+        <td><%= chinese_character.initial %></td>
+        <td><%= chinese_character.final %></td>
+        <td><%= chinese_character.tone %></td>
+        <td><%= chinese_character.etymology %></td>
+        <td><%= chinese_character.image %></td>
+        <td><%= chinese_character.sound %></td>
+        <td><%= chinese_character.stroke_order_simplified %></td>
+        <td><%= chinese_character.stroke_order_traditional %></td>
+        <td><%= chinese_character.translated_to %></td>
+        <td><%= chinese_character.vote_value %></td>
+
+        <td>
+          <span><%= live_redirect "Show", to: Routes.chinese_character_show_path(@socket, :show, chinese_character) %></span>
+          <span><%= live_patch "Edit", to: Routes.chinese_character_index_path(@socket, :edit, chinese_character) %></span>
+          <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: chinese_character.id, data: [confirm: "Are you sure?"] %></span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<span><%= live_patch "New Chinese character", to: Routes.chinese_character_index_path(@socket, :new) %></span>
