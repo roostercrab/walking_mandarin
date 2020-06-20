@@ -66,6 +66,14 @@ defmodule WalkingMandarinWeb.Router do
     put "/users/settings/update_password", UserSettingsController, :update_password
     put "/users/settings/update_email", UserSettingsController, :update_email
     get "/users/settings/confirm_email/:token", UserSettingsController, :confirm_email
+
+    live "/chinese_characters", ChineseCharacterLive.Index, :index
+    live "/chinese_characters/new", ChineseCharacterLive.Index, :new
+    live "/chinese_characters/:id/edit", ChineseCharacterLive.Index, :edit
+    live "/chinese_characters/:id", ChineseCharacterLive.Show, :show
+    live "/chinese_characters/:id/show/edit", ChineseCharacterLive.Show, :edit
+
+
   end
 
   scope "/", WalkingMandarinWeb do

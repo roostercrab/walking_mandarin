@@ -1,0 +1,112 @@
+<h1>Show Chinese character</h1>
+
+<%= if @live_action in [:edit] do %>
+  <%= live_modal @socket, WalkingMandarinWeb.ChineseCharacterLive.FormComponent,
+    id: @chinese_character.id,
+    title: @page_title,
+    action: @live_action,
+    chinese_character: @chinese_character,
+    return_to: Routes.chinese_character_show_path(@socket, :show, @chinese_character) %>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Hanzi standard:</strong>
+    <%= @chinese_character.hanzi_standard %>
+  </li>
+
+  <li>
+    <strong>Hanzi traditional:</strong>
+    <%= @chinese_character.hanzi_traditional %>
+  </li>
+
+  <li>
+    <strong>Pinyin:</strong>
+    <%= @chinese_character.pinyin %>
+  </li>
+
+  <li>
+    <strong>Meaning:</strong>
+    <%= @chinese_character.meaning %>
+  </li>
+
+  <li>
+    <strong>Pronounciation helper:</strong>
+    <%= @chinese_character.pronounciation_helper %>
+  </li>
+
+  <li>
+    <strong>Mnemonic:</strong>
+    <%= @chinese_character.mnemonic %>
+  </li>
+
+  <li>
+    <strong>Part of speech:</strong>
+    <%= @chinese_character.part_of_speech %>
+  </li>
+
+  <li>
+    <strong>Radical:</strong>
+    <%= @chinese_character.radical %>
+  </li>
+
+  <li>
+    <strong>Phonetic:</strong>
+    <%= @chinese_character.phonetic %>
+  </li>
+
+  <li>
+    <strong>Initial:</strong>
+    <%= @chinese_character.initial %>
+  </li>
+
+  <li>
+    <strong>Final:</strong>
+    <%= @chinese_character.final %>
+  </li>
+
+  <li>
+    <strong>Tone:</strong>
+    <%= @chinese_character.tone %>
+  </li>
+
+  <li>
+    <strong>Etymology:</strong>
+    <%= @chinese_character.etymology %>
+  </li>
+
+  <li>
+    <strong>Image:</strong>
+    <%= @chinese_character.image %>
+  </li>
+
+  <li>
+    <strong>Sound:</strong>
+    <%= @chinese_character.sound %>
+  </li>
+
+  <li>
+    <strong>Stroke order simplified:</strong>
+    <%= @chinese_character.stroke_order_simplified %>
+  </li>
+
+  <li>
+    <strong>Stroke order traditional:</strong>
+    <%= @chinese_character.stroke_order_traditional %>
+  </li>
+
+  <li>
+    <strong>Translated to:</strong>
+    <%= @chinese_character.translated_to %>
+  </li>
+
+  <li>
+    <strong>Vote value:</strong>
+    <%= @chinese_character.vote_value %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.chinese_character_show_path(@socket, :edit, @chinese_character), class: "button" %></span>
+<span><%= live_redirect "Back", to: Routes.chinese_character_index_path(@socket, :index) %></span>
