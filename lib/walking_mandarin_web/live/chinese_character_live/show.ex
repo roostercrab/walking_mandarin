@@ -16,6 +16,6 @@ defmodule WalkingMandarinWeb.ChineseCharacterLive.Show do
      |> assign(:chinese_character, Languages.get_chinese_character!(id))}
   end
 
-  defp page_title(:show), do: "Show Chinese character"
-  defp page_title(:edit), do: "Edit Chinese character"
+  defp page_title(:show), do: "Show Chinese Word"
+  defp page_title(:edit), do: "Edit Chinese Word"
 end

@@ -1,4 +1,4 @@
-<h1>Listing Chinese characters</h1>
+<h1>Listing Chinese Words</h1>
 
 <%= if @live_action in [:new, :edit] do %>
   <%= live_modal @socket, WalkingMandarinWeb.ChineseCharacterLive.FormComponent,
@@ -68,4 +68,4 @@
   </tbody>
 </table>
 
-<span><%= live_patch "New Chinese character", to: Routes.chinese_character_index_path(@socket, :new) %></span>
+<span><%= live_patch "New Chinese Word", to: Routes.chinese_character_index_path(@socket, :new) %></span>

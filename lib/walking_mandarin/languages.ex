@@ -24,7 +24,7 @@ defmodule WalkingMandarin.Languages do
   @doc """
   Gets a single chinese_character.
 
-  Raises `Ecto.NoResultsError` if the Chinese character does not exist.
+  Raises `Ecto.NoResultsError` if the Chinese Word does not exist.
 
   ## Examples
 

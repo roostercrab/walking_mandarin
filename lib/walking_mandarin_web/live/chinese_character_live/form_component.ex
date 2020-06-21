@@ -32,7 +32,7 @@ defmodule WalkingMandarinWeb.ChineseCharacterLive.FormComponent do
       {:ok, _chinese_character} ->
         {:noreply,
          socket
-         |> put_flash(:info, "Chinese character updated successfully")
+         |> put_flash(:info, "Chinese Word updated successfully")
          |> push_redirect(to: socket.assigns.return_to)}
 
       {:error, %Ecto.Changeset{} = changeset} ->
@@ -45,7 +45,7 @@ defmodule WalkingMandarinWeb.ChineseCharacterLive.FormComponent do
       {:ok, _chinese_character} ->
         {:noreply,
          socket
-         |> put_flash(:info, "Chinese character created successfully")
+         |> put_flash(:info, "Chinese Word created successfully")
          |> push_redirect(to: socket.assigns.return_to)}
 
       {:error, %Ecto.Changeset{} = changeset} ->

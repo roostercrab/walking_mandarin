@@ -25,15 +25,15 @@ defmodule WalkingMandarinWeb.ChineseCharacterLiveTest do
     test "lists all chinese_characters", %{conn: conn, chinese_character: chinese_character} do
       {:ok, _index_live, html} = live(conn, Routes.chinese_character_index_path(conn, :index))
 
-      assert html =~ "Listing Chinese characters"
+      assert html =~ "Listing Chinese Words"
       assert html =~ chinese_character.etymology
     end
 
     test "saves new chinese_character", %{conn: conn} do
       {:ok, index_live, _html} = live(conn, Routes.chinese_character_index_path(conn, :index))
 
-      assert index_live |> element("a", "New Chinese character") |> render_click() =~
-               "New Chinese character"
+      assert index_live |> element("a", "New Chinese Word") |> render_click() =~
+               "New Chinese Word"
 
       assert_patch(index_live, Routes.chinese_character_index_path(conn, :new))
 
@@ -47,7 +47,7 @@ defmodule WalkingMandarinWeb.ChineseCharacterLiveTest do
         |> render_submit()
         |> follow_redirect(conn, Routes.chinese_character_index_path(conn, :index))
 
-      assert html =~ "Chinese character created successfully"
+      assert html =~ "Chinese Word created successfully"
       assert html =~ "some etymology"
     end
 
@@ -55,7 +55,7 @@ defmodule WalkingMandarinWeb.ChineseCharacterLiveTest do
       {:ok, index_live, _html} = live(conn, Routes.chinese_character_index_path(conn, :index))
 
       assert index_live |> element("#chinese_character-#{chinese_character.id} a", "Edit") |> render_click() =~
-               "Edit Chinese character"
+               "Edit Chinese Word"
 
       assert_patch(index_live, Routes.chinese_character_index_path(conn, :edit, chinese_character))
 
@@ -69,7 +69,7 @@ defmodule WalkingMandarinWeb.ChineseCharacterLiveTest do
         |> render_submit()
         |> follow_redirect(conn, Routes.chinese_character_index_path(conn, :index))
 
-      assert html =~ "Chinese character updated successfully"
+      assert html =~ "Chinese Word updated successfully"
       assert html =~ "some updated etymology"
     end
 
@@ -87,7 +87,7 @@ defmodule WalkingMandarinWeb.ChineseCharacterLiveTest do
     test "displays chinese_character", %{conn: conn, chinese_character: chinese_character} do
       {:ok, _show_live, html} = live(conn, Routes.chinese_character_show_path(conn, :show, chinese_character))
 
-      assert html =~ "Show Chinese character"
+      assert html =~ "Show Chinese Word"
       assert html =~ chinese_character.etymology
     end
 
@@ -95,7 +95,7 @@ defmodule WalkingMandarinWeb.ChineseCharacterLiveTest do
       {:ok, show_live, _html} = live(conn, Routes.chinese_character_show_path(conn, :show, chinese_character))
 
       assert show_live |> element("a", "Edit") |> render_click() =~
-               "Edit Chinese character"
+               "Edit Chinese Word"
 
       assert_patch(show_live, Routes.chinese_character_show_path(conn, :edit, chinese_character))
 
@@ -109,7 +109,7 @@ defmodule WalkingMandarinWeb.ChineseCharacterLiveTest do
         |> render_submit()
         |> follow_redirect(conn, Routes.chinese_character_show_path(conn, :show, chinese_character))
 
-      assert html =~ "Chinese character updated successfully"
+      assert html =~ "Chinese Word updated successfully"
       assert html =~ "some updated etymology"
     end
   end

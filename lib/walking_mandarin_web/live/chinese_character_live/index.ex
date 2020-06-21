@@ -16,19 +16,19 @@ defmodule WalkingMandarinWeb.ChineseCharacterLive.Index do
 
   defp apply_action(socket, :edit, %{"id" => id}) do
     socket
-    |> assign(:page_title, "Edit Chinese character")
+    |> assign(:page_title, "Edit Chinese Word")
     |> assign(:chinese_character, Languages.get_chinese_character!(id))
   end
 
   defp apply_action(socket, :new, _params) do
     socket
-    |> assign(:page_title, "New Chinese character")
+    |> assign(:page_title, "New Chinese Word")
     |> assign(:chinese_character, %ChineseCharacter{})
   end
 
   defp apply_action(socket, :index, _params) do
     socket
-    |> assign(:page_title, "Listing Chinese characters")
+    |> assign(:page_title, "Listing Chinese Words")
     |> assign(:chinese_character, nil)
   end
 
